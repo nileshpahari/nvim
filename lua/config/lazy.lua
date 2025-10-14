@@ -25,7 +25,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	install = { colorscheme = { "tokyonight" } },
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
 })
 
-vim.cmd[[colorscheme tokyonight]]
+--vim.cmd[[colorscheme doom-one]]
