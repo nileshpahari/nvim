@@ -63,7 +63,7 @@ return {
 			"<leader>sk",
 			function()
 				Snacks.picker.keymaps({
-					layout = "vscode",
+					layout = "vertical",
 				})
 			end,
 			desc = "Keymaps",
@@ -115,6 +115,7 @@ return {
 	},
 	opts = {
 		bigfile = { enabled = true },
+		image = { enabled = true },
 		dashboard = { enabled = true },
 		explorer = { enabled = true, layout = { cycle = false } },
 		indent = { enabled = true },
@@ -134,11 +135,11 @@ return {
 						["L"] = { "preview_scroll_right", mode = { "i", "n" } },
 					},
 				},
-			}
+			},
 		},
 
 		notifier = {
-			enabled = true,
+			enabled = false,
 			top_down = false, -- place notifications from top to bottom
 		},
 		quickfile = { enabled = true },

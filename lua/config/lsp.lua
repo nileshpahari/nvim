@@ -1,4 +1,5 @@
-local servers = { 'html', 'cssls', 'lua_ls', 'clangd', 'rust_analyzer', 'basedpyright', 'ts_ls', 'tailwindcss', 'eslint' }
+local servers =
+	{ "html", "cssls", "lua_ls", "clangd", "rust_analyzer", "basedpyright", "ts_ls", "tailwindcss", "eslint" }
 
 vim.lsp.enable(servers)
 
@@ -43,6 +44,10 @@ vim.api.nvim_create_autocmd(
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+			vim.keymap.set("n", "<leader>th", function()
+				local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+				vim.lsp.inlay_hint.enable(not enabled)
+			end, { desc = "Toggle inlay hints" })
 
 			vim.keymap.set("n", "<leader>f", function()
 				vim.lsp.buf.format({ async = true })
@@ -54,6 +59,10 @@ vim.api.nvim_create_autocmd(
 					border = "rounded",
 				})
 			end, opts)
+			local client = vim.lsp.get_client_by_id(ev.data.client_id)
+			if client and client.server_capabilities.inlayHintProvider then
+				vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+			end
 		end,
 	}
 )
