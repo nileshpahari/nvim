@@ -1,4 +1,4 @@
-local servers = {'html', 'cssls', 'lua_ls', 'clangd', 'rust_analyzer', 'basedpyright', 'vtsls'}
+local servers = {'html', 'cssls', 'lua_ls', 'clangd', 'rust_analyzer', 'basedpyright', 'ts_ls'}
 
 vim.lsp.enable(servers)
 
