@@ -8,14 +8,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 			{ out, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
-		vim.fn.getchar()
 		os.exit(1)
+		vim.fn.getchar()
 	end
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("config.globals")
 require("config.options")
+require("config.lsp")
 require("config.keymaps")
 require("config.autocmds")
 
