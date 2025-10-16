@@ -32,3 +32,22 @@ vim.api.nvim_create_autocmd(
     }
 )
 
+
+-- tmux shit
+if vim.env.TMUX then
+  local group = vim.api.nvim_create_augroup("ToggleTmuxStatus", { clear = true })
+
+  local function tmux_status(state)
+    vim.system({ "tmux", "set", "status", state })
+  end
+
+  vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
+    group = group,
+    callback = function() tmux_status("off") end,
+  })
+
+  vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+    group = group,
+    callback = function() tmux_status("on") end,
+  })
+end
