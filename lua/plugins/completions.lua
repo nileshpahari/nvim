@@ -30,6 +30,7 @@ return {
       ['<C-j>'] = { 'select_next', 'fallback'},  -- Ctrl+j for down
       ['<C-k>'] = {'select_prev', 'fallback'},  -- Ctrl+k for up
       ['<CR>'] = {'select_and_accept', 'fallback'},      -- Enter to confirm selection
+      ['<C><space>'] = {'show', 'fallback'},      -- Enter to confirm selection
     },
 
     appearance = {
@@ -39,7 +40,7 @@ return {
     },
 
     -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    completion = { documentation = { auto_show = true } },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
