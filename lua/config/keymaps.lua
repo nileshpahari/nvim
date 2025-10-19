@@ -1,6 +1,9 @@
 -- Keymaps
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", function()
+	vim.cmd("nohlsearch")
+	vim.cmd("NoiceDismiss")
+end, { desc = "Clear search & dismiss noice" })
 vim.keymap.set("n", "<leader>so", ":update<CR> :source<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
@@ -42,6 +45,8 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position"
 
 vim.keymap.set("n", "<leader>rc", "<Cmd>e ~/.config/nvim/init.lua<CR>", { desc = "Edit config" })
 
+-- plugin maps
+--vim.keymap.set({ "n" }, "<Esc>", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss noice notification" })
 
 -- LSP
 vim.keymap.set("n", "<leader>cf", function()
