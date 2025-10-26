@@ -2,7 +2,7 @@
 
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
-	vim.cmd("NoiceDismiss")
+	--	vim.cmd("NoiceDismiss")
 end, { desc = "Clear search & dismiss noice" })
 vim.keymap.set("n", "<leader>so", ":update<CR> :source<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
