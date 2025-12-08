@@ -1,6 +1,33 @@
-local servers =
-	{ "html", "cssls", "lua_ls", "clangd", "rust_analyzer", "basedpyright", "ts_ls", "tailwindcss", "eslint" }
+local servers = {
+	"html",
+	"cssls",
+	"lua_ls",
+	"clangd",
+	"rust_analyzer",
+	"basedpyright",
+	"ts_ls",
+	"tailwindcss",
+	"eslint",
+	"bashls",
+	"shellcheck",
+}
 
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      analysis = {
+		  typeCheckingMode = "standard",
+        -- diagnosticSeverityOverrides = {
+        --   reportMissingParameterType = false,
+        --   reportUnknownParameterType =false,
+        --   reportUnknownVariableType =false,
+        --   reportUnknownMemberType =false,
+        --   reportUnusedVariable =false,
+        -- },
+      },
+    },
+  },
+})
 vim.lsp.enable(servers)
 
 vim.diagnostic.config({

@@ -29,4 +29,4 @@ require("lazy").setup({
 	checker = { enabled = true, notify = false },
 })
 
-vim.cmd [[colorscheme nordic]]
+vim.cmd [[colorscheme doom-one]]

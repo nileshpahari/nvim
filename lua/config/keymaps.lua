@@ -2,7 +2,7 @@
 
 vim.keymap.set("n", "<Esc>", function()
 	vim.cmd("nohlsearch")
-	--	vim.cmd("NoiceDismiss")
+	vim.cmd("NoiceDismiss")
 end, { desc = "Clear search & dismiss noice" })
 vim.keymap.set("n", "<leader>so", ":update<CR> :source<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
@@ -55,3 +55,8 @@ end)
 -- File Explorer
 --vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
 --vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+
+-- Git
+--vim.keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", { desc = "Open LazyGit" })
+vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Open Diff view" })
+
