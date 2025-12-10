@@ -57,6 +57,7 @@ end)
 --vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
 -- Git
---vim.keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", { desc = "Open LazyGit" })
-vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Open Diff view" })
+vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open Diff view" })
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "Open Diff view" })
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Open Diff view" })
 
