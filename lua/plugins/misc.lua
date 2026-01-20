@@ -13,6 +13,12 @@ return {
 			-- refer to the configuration section below
 		}
 	},
+	{
+		"folke/twilight.nvim",
+	},
+	{
+		"airblade/vim-rooter",
+	}
 	-- {
 	-- 	"windwp/nvim-ts-autotag",
 	-- 	config = function()

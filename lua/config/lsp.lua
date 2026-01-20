@@ -13,20 +13,23 @@ local servers = {
 }
 
 vim.lsp.config("basedpyright", {
-  settings = {
-    basedpyright = {
-      analysis = {
-		  typeCheckingMode = "standard",
-        -- diagnosticSeverityOverrides = {
-        --   reportMissingParameterType = false,
-        --   reportUnknownParameterType =false,
-        --   reportUnknownVariableType =false,
-        --   reportUnknownMemberType =false,
-        --   reportUnusedVariable =false,
-        -- },
-      },
-    },
-  },
+	settings = {
+		-- python = {
+		-- 	pythonPath = "/home/nilesh/local/virtualenvs/djangodev/bin/python"
+		-- },
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "off",
+				-- diagnosticSeverityOverrides = {
+				--   reportMissingParameterType = false,
+				--   reportUnknownParameterType =false,
+				--   reportUnknownVariableType =false,
+				--   reportUnknownMemberType =false,
+				--   reportUnusedVariable =false,
+				-- },
+			},
+		},
+	},
 })
 vim.lsp.enable(servers)
 

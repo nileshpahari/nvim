@@ -1,60 +1,48 @@
+-- .config/nvim/lua/plugins/lualine.lua
+
+local function get_wordcount()
+  local word_count = 0
+
+  if vim.fn.mode():find("[vV]") then
+    word_count = vim.fn.wordcount().visual_words
+  else
+    word_count = vim.fn.wordcount().words
+  end
+
+  return word_count
+end
+
+local function wordcount()
+  local label = "word"
+  local word_count = get_wordcount()
+
+  if word_count > 1 then
+    label = label .. "s"
+  end
+
+  return word_count .. " " .. label
+end
+
+local function readingtime()
+  -- 200 is about the average words read per minute.
+  return tostring(math.ceil(get_wordcount() / 200.0)) .. " min"
+end
+
+local function is_prose()
+  return vim.bo.filetype == "markdown" or vim.bo.filetype == "text"
+end
+
 return {
-    'nvim-lualine/lualine.nvim',
-	config = function()
-		require('lualine').setup {
-		  options = {
-			icons_enabled = true,
-			theme = 'auto',
-			component_separators = { left = '', right = ''},
-			section_separators = { left = '', right = ''},
-			disabled_filetypes = {
-			  statusline = {},
-			  winbar = {},
-			},
-			ignore_focus = {},
-			always_divide_middle = true,
-			always_show_tabline = true,
-			globalstatus = false,
-			refresh = {
-			  statusline = 1000,
-			  tabline = 1000,
-			  winbar = 1000,
-			  refresh_time = 16, -- ~60fps
-			  events = {
-				'WinEnter',
-				'BufEnter',
-				'BufWritePost',
-				'SessionLoadPost',
-				'FileChangedShellPost',
-				'VimResized',
-				'Filetype',
-				'CursorMoved',
-				'CursorMovedI',
-				'ModeChanged',
-			  },
-			}
-		  },
-		  sections = {
-			lualine_a = {'mode'},
-			lualine_b = {'branch', 'diff', 'diagnostics'},
-			lualine_c = {'filename'},
-			lualine_x = {'encoding', 'fileformat', 'filetype'},
-			lualine_y = {'progress'},
-			lualine_z = {'location'}
-		  },
-		  inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_c = {'filename'},
-			lualine_x = {'location'},
-			lualine_y = {},
-			lualine_z = {}
-		  },
-		  tabline = {},
-		  winbar = {},
-		  inactive_winbar = {},
-		  extensions = {}
-		}
-	end,
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      sections = {
+        -- Disable the default clock and replace it with word stats.
+        lualine_z = {
+          { wordcount, cond = is_prose },
+          { readingtime, cond = is_prose },
+        },
+      },
+    },
+  },
 }
