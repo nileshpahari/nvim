@@ -16,8 +16,17 @@ local gruvbox = {
 	end,
 }
 
+local tokyonight = {
+	"folke/tokyonight.nvim",
+	enabled = true,
+	priority = 1000,
+	config = function()
+		vim.g.tokyonight_style = "night"
+	end,
+}
+
 local doom_one = {
-	'NTBBloodbath/doom-one.nvim',
+	"NTBBloodbath/doom-one.nvim",
 	config = function()
 		-- Add color to cursor
 		vim.g.doom_one_cursor_coloring = false
@@ -48,11 +57,11 @@ local doom_one = {
 		vim.g.doom_one_plugin_indent_blankline = true
 		vim.g.doom_one_plugin_vim_illuminate = true
 		vim.g.doom_one_plugin_lspsaga = false
-	end
+	end,
 }
 
 local nordic = {
-	'AlexvZyl/nordic.nvim',
+	"AlexvZyl/nordic.nvim",
 	enabled = true,
 	lazy = false,
 	priority = 1000,
@@ -71,20 +80,20 @@ local catppuccin = {
 		},
 		transparent_background = false, -- disables setting the background color.
 		float = {
-			transparent = false,  -- enable transparent floating windows
-			solid = false,        -- use solid styling for floating windows, see |winborder|
+			transparent = false, -- enable transparent floating windows
+			solid = false, -- use solid styling for floating windows, see |winborder|
 		},
 		show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-		term_colors = false,      -- sets terminal colors (e.g. `g:terminal_color_0`)
+		term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 		dim_inactive = {
-			enabled = false,      -- dims the background color of inactive window
+			enabled = false, -- dims the background color of inactive window
 			shade = "dark",
-			percentage = 0.15,    -- percentage of the shade to apply to the inactive window
+			percentage = 0.15, -- percentage of the shade to apply to the inactive window
 		},
-		no_italic = false,        -- Force no italic
-		no_bold = false,          -- Force no bold
-		no_underline = false,     -- Force no underline
-		styles = {                -- Handles the styles of general hi groups (see `:h highlight-args`):
+		no_italic = false, -- Force no italic
+		no_bold = false, -- Force no bold
+		no_underline = false, -- Force no underline
+		styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
 			comments = { "italic" }, -- Change the style of comments
 			conditionals = { "italic" },
 			loops = {},
@@ -133,11 +142,12 @@ local catppuccin = {
 			},
 			-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 		},
-	}
+	},
 }
 
 return {
 	nordic,
+	tokyonight,
 	catppuccin,
 	gruvbox,
 	doom_one,
